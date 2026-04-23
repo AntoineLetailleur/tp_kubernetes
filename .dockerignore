@@ -1,0 +1,5 @@
+node_modules
+npm-debug.log
+.git
+app/config/config.json
+.env

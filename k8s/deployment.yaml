@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tp-atelier-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-container
+        image: tpkubernetes:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+        # Injection du ConfigMap (Fichier)
+        volumeMounts:
+        - name: config-vol
+          mountPath: /app/config
+        # Injection du Secret (Variables d'environnement)
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: tp-atelier-secret
+              key: DB_USER
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: tp-atelier-secret
+              key: DB_PASSWORD
+      volumes:
+      - name: config-vol
+        configMap:
+          name: tp-atelier-config

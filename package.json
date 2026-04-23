@@ -1,0 +1,23 @@
+{
+  "name": "tp_kubernetes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntoineLetailleur/tp_kubernetes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntoineLetailleur/tp_kubernetes/issues"
+  },
+  "homepage": "https://github.com/AntoineLetailleur/tp_kubernetes#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
