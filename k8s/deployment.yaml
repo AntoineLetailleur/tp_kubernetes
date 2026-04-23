@@ -18,11 +18,9 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 3000
-        # Injection du ConfigMap (Fichier)
         volumeMounts:
         - name: config-vol
           mountPath: /app/config
-        # Injection du Secret (Variables d'environnement)
         env:
         - name: DB_USER
           valueFrom:
